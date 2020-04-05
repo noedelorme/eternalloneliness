@@ -1,0 +1,23 @@
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+ font-family: "Altair";
+ src: url("../font/Altair.ttf");
+}
+
+body{
+  background-color: #131417;
+  font-family: 'Source sans pro', sans-serif;
+}
+p{
+  text-align: center;
+  font-family: "Altair";
+  font-size: 3em;
+  color:red;
+  font-weight: bold;
+  margin:50px 0;
+}
