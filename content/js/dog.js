@@ -1,15 +1,6 @@
 (function() {
 
-  /* TITLE CHANGE */
-  let title = document.getElementsByTagName("title")[0];
-  let titles = ["Roses", "are", "red", "Romance", "is", "dead", "Everyday", "I", "suffer", "From", "existential", "dread"];
-  let i = 0;
-  setInterval(function() {
-    title.innerHTML = titles[i % 12];
-    i++;
-  }, 500);
-
-  /* OPEN ETERNAL */
+  /* OPEN ETERNALLONLINESS */
   let dogy;
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function(){
@@ -29,7 +20,18 @@
   document.addEventListener("keypress", function(e){
     taped += e.key;
     if(taped.includes(dogy)){
-      window.location.href = "./home/";
+      var f = document.createElement('form');
+      f.action='/home';
+      f.method='POST';
+
+      var i=document.createElement('input');
+      i.type='hidden';
+      i.name='pass';
+      i.value=dogy;
+      f.appendChild(i);
+
+      document.body.appendChild(f);
+      f.submit();
     }
   });
 })()
