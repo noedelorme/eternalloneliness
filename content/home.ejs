@@ -1,5 +1,53 @@
 <%- include('template/header') %>
 
-<p>WORK IN PROGRESS</p>
+<script type="text/javascript">
+  if(document.referrer != "<%= referrer %>"){
+    window.location.href = "/";
+  }
+</script>
+
+<div class="container">
+  <div class="module">
+    <h2>INF105</h2>
+    <div class="module-content">
+      <div class="folder">
+        <span class="folder-name">Folder Name</span>
+        <div class="folder-content">
+          <div class="file">
+            This is a file
+          </div>
+          <div class="file">
+            This is a file
+          </div>
+        </div>
+      </div>
+      <div class="folder">
+        <span class="folder-name">Folder Name</span>
+        <div class="folder-content">
+          <div class="folder">
+            <span class="folder-name">Folder Name</span>
+            <div class="folder-content">
+              <div class="file">
+                This is a file
+              </div>
+            </div>
+          </div>
+          <div class="file">
+            This is a file
+          </div>
+          <div class="file">
+            This is a file
+          </div>
+        </div>
+      </div>
+      <div class="file">
+        This is a file
+      </div>
+      <div class="file">
+        This is a file
+      </div>
+    </div>
+  </div>
+</div>
 
 <%- include('template/footer') %>

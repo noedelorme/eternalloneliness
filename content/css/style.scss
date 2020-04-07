@@ -1,3 +1,5 @@
+@import '_var';
+
 *,*::before,*::after{
   margin: 0;
   padding: 0;
@@ -10,14 +12,12 @@
 }
 
 body{
-  background-color: #131417;
+  background-color: $bkg-color;
   font-family: 'Source sans pro', sans-serif;
+  color: $text-color-2;
 }
-p{
-  text-align: center;
-  font-family: "Altair";
-  font-size: 3em;
-  color:red;
-  font-weight: bold;
-  margin:50px 0;
+
+.container{
+  width:1000px;
+  margin: auto;
 }

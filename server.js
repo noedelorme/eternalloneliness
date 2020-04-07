@@ -17,6 +17,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /*
+CONSTANTES
+*/
+const url = "http://localhost:8101/";
+
+/*
 ROOTER SYSTEM
 */
 app.get('/', function(req, res){
@@ -25,14 +30,10 @@ app.get('/', function(req, res){
 app.post('/dogy', function(req, res){
   res.send('666open666');
 });
-app.post('/home', function(req, res){
-  if(req.body.pass){
-    if(req.body.pass == '666open666'){
-      res.render('./home');
-    }
-  }else{
-    res.render('./404');
-  }
+app.get('/home', function(req, res){
+  res.render('./home', {
+    referrer : url,
+  });
 });
 app.get('*', function(req, res){
   res.render('./404');
