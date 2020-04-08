@@ -1,5 +1,5 @@
-$bkg-color: #0E0E0E;
+$bkg-color: #202225;
 
-$text-color-1: #fff;
-$text-color-2: #adb5bd;
-$text-color-3: darker($text-color-2, 10%);
+$text-color-1: #adb5bd;
+$text-color-2: darken($text-color-1, 10%);
+$text-color-3: darken($text-color-2, 20%);
