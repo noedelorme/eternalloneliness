@@ -36,9 +36,55 @@ body{
 .container{
   width:1000px;
   margin: auto;
+  position: relative;
 }
 @media screen and (max-width: 1200px) {
   .container{
     width:95%;
+  }
+}
+
+header{
+  border-bottom: 1px solid $border-color;
+  height: 80px;
+  padding: 15px 0;
+  h1{
+    font-family: "Altair";
+    font-size: 30px;
+    line-height: 50px;
+    vertical-align: middle;
+  }
+  .upload-button{
+    position: absolute;
+    right: 0;
+    top:0;
+  }
+}
+@keyframes upload{
+  0%{background-position:0% -50%}
+    50%{background-position:100% -50%}
+    100%{background-position:0% -50%}
+}
+.upload-button{
+  height: 50px;
+  display: inline-block;
+  background: linear-gradient(40deg,#0ebeff,#ffdd40,#ae63e4,#47cf73,#0ebeff,#ffdd40,#ae63e4,#47cf73,#0ebeff,#ffdd40,#ae63e4,#47cf73,#0ebeff,#ffdd40,#ae63e4,#47cf73);
+  background-size: 400% 400%;
+  border-radius: 4px;
+  position: relative;
+  animation: upload 20s ease-in-out infinite;
+  .upload-button-content{
+    display: block;
+    border-radius: 2px;
+    background-color: $bkg-color;
+    color: lighten($text-color-1, 20%);
+    margin: 3px;
+    padding: 5px 10px;
+    height: 50px - 2*3px;
+    text-transform: uppercase;
+    line-height: 50px - 2*3px -2*5px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: bold;
   }
 }

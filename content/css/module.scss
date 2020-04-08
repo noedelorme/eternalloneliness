@@ -1,11 +1,6 @@
 @import '_var';
 
-$module-bkg-color: #2F3136;
-$border-color: #494D55;
 
-$pink: #ffbcbc;
-$cyan: #4cd3c2;
-$green: #b7efcd;
 
 .module{
   background-color: $module-bkg-color;
@@ -15,7 +10,7 @@ $green: #b7efcd;
   overflow: hidden;
   a.module-name{
     display: block;
-    transition: .2s;
+    transition: .15s;
     &:hover{
       color: #fff;
     }
