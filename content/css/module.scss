@@ -8,12 +8,12 @@
   margin: 25px 0;
   position: relative;
   overflow: hidden;
+  &:hover{
+    background-color: lighten($module-bkg-color, 5%);
+    color: $text-color-1;
+  }
   a.module-name{
     display: block;
-    transition: .15s;
-    &:hover{
-      color: #fff;
-    }
     h2{
       text-transform: uppercase;
       font-size: 30px;
