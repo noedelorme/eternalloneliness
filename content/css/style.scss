@@ -221,7 +221,10 @@ header{
       padding-left: 15px;
       display: inline-block;
       line-height: 20px;
-      white-space:nowrap;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       i{
         font-size: 17px;
         margin-right: 5px;
@@ -249,11 +252,16 @@ header{
     i, .real-upload-choose{
       display: block;
       padding:5px 0;
+      font-size: 20px;
     }
   }
   .real-upload-filename{
     display: block;
     border: 3px solid $border-color;
-    padding: 10px 0;
+    padding: 10px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
