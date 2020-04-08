@@ -24,16 +24,22 @@ const url = "http://localhost:8101/";
 /*
 ROOTER SYSTEM
 */
-app.get('/', function(req, res){
-  res.render('./index');
-});
 app.post('/dogy', function(req, res){
   res.send('666open666');
+});
+app.get('/', function(req, res){
+  res.render('./index');
 });
 app.get('/home', function(req, res){
   res.render('./home', {
     referrer : url,
   });
+});
+app.get('/upload', function(req, res){
+  res.render('./upload');
+});
+app.get('/file', function(req, res){
+  res.render('./filelist');
 });
 app.get('*', function(req, res){
   res.render('./404');
