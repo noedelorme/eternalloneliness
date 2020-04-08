@@ -150,10 +150,11 @@ header{
 
 .file{
   display: block;
-  background-color: $module-bkg-color;
+  background-color: $border-color;
   border-radius: 4px;
   margin-bottom: 25px;
   overflow: hidden;
+  color: $text-color-1;
   position: relative;
   &:last-child{
     margin-bottom: 15px;
@@ -167,11 +168,16 @@ header{
     h3{
       font-size: 20px;
       padding: 8px;
-      padding-left: 20px;
+      padding-left: 15px;
+      padding-right: 120px;
+      width: 100%;
       display: inline-block;
       line-height: 20px;
+      vertical-align: middle;
       font-weight: normal;
-      white-space:nowrap;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       i{
         font-size: 17px;
         margin-right: 5px;
@@ -190,7 +196,6 @@ header{
     padding: 8px;
     background-color: $green;
     transition: .3s;
-    box-shadow: -40px 0 30px $module-bkg-color;
     &:hover{
       background-color: lighten($green, 20%);
     }
@@ -198,14 +203,14 @@ header{
 }
 
 .folder{
-  border: 3px solid $border-color;
+  border: 3px solid $module-bkg-color;
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 35px;
   .folder-name{
     display: block;
-    background-color: $border-color;
-    color: $text-color-1;
+    background-color: $module-bkg-color;
+    color: $text-color-2;
     overflow: hidden;
     position: relative;
     font-weight: bold;
@@ -213,7 +218,7 @@ header{
     h3{
       font-size: 20px;
       padding: 8px;
-      padding-left: 20px;
+      padding-left: 15px;
       display: inline-block;
       line-height: 20px;
       white-space:nowrap;
@@ -226,5 +231,29 @@ header{
   .folder-content{
     padding-left: 35px;
     padding-right: 5px;
+  }
+}
+
+
+.real-upload{
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  border-radius: 4px;
+  overflow: hidden;
+  .real-upload-button{
+    display: block;
+    background-color: $border-color;
+    padding: 25px;
+    color: $text-color-1;
+    i, .real-upload-choose{
+      display: block;
+      padding:5px 0;
+    }
+  }
+  .real-upload-filename{
+    display: block;
+    border: 3px solid $border-color;
+    padding: 10px 0;
   }
 }

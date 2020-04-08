@@ -12,13 +12,22 @@
 
     <script src="https://kit.fontawesome.com/b66bbacdfb.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/titlechange.js"></script>
+    <script type="text/javascript">
+      let referrers = [];
+      <% referrers.forEach(function(ref) { %>
+        referrers.push("<%= ref %>");
+      <% }); %>
+      if(!referrers.includes(document.referrer)){
+        window.location.href = "/";
+      }
+    </script>
   </head>
   <body>
 
     <header>
       <div class="container">
-        <h1><a href="#">eternalloneliness <span class="beta-badge">bêta</span></a></h1>
-        <a href="#" class="upload-button"><span class="upload-button-content"><i class="fas fa-upload"></i> Upload</span></a>
+        <h1><a href="/home">eternalloneliness <span class="beta-badge">bêta</span></a></h1>
+        <a href="/upload" class="upload-button"><span class="upload-button-content"><i class="fas fa-upload"></i> Upload</span></a>
       </div>
     </header>
 

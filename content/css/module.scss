@@ -1,7 +1,5 @@
 @import '_var';
 
-
-
 .module{
   background-color: $module-bkg-color;
   border-radius: 4px;
@@ -10,20 +8,41 @@
   overflow: hidden;
   &:hover{
     background-color: lighten($module-bkg-color, 5%);
-    color: $text-color-1;
+    a.module-name h2{
+      color: $text-color-1;
+      .module-short-name{
+        color: $text-color-1;
+      }
+    }
   }
   a.module-name{
     display: block;
     h2{
-      text-transform: uppercase;
-      font-size: 30px;
+      font-size: 20px;
+      color: $text-color-3;
       padding: 30px;
       padding-right: 20px;
       display: inline-block;
-      line-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width:100%;
+      padding-right: 100px;
+      font-weight: normal;
+      .module-short-name{
+        text-transform: uppercase;
+        font-size: 30px;
+        color:$text-color-2;
+        font-weight: bold;
+      }
       i{
         font-size: 20px;
-        vertical-align: middle;
+        color:$text-color-2;
+      }
+      .module-full-name{
+        padding-left: 15px;
+        margin-left: 10px;
+        border-left: 1px solid $border-color;
       }
     }
   }

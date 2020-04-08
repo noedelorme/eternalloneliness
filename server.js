@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /*
 CONSTANTES
 */
-const url = "http://localhost:8101/";
+const allUrls = ["http://localhost:8101/", "http://localhost:8101/file", "http://localhost:8101/upload", "http://localhost:8101/home"];
 
 /*
 ROOTER SYSTEM
@@ -32,14 +32,18 @@ app.get('/', function(req, res){
 });
 app.get('/home', function(req, res){
   res.render('./home', {
-    referrer : url,
+    referrers : allUrls,
   });
 });
 app.get('/upload', function(req, res){
-  res.render('./upload');
+  res.render('./upload', {
+    referrers : allUrls,
+  });
 });
 app.get('/file', function(req, res){
-  res.render('./filelist');
+  res.render('./filelist', {
+    referrers : allUrls,
+  });
 });
 app.get('*', function(req, res){
   res.render('./404');
