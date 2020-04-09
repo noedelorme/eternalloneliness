@@ -1,9 +1,11 @@
 /*
-NATIVE REQUIRE
+MODULE IMPORT
 */
 const express = require('express');
 const ejs = require('ejs');
 var bodyParser = require('body-parser');
+
+var catchfile = require('./catchfile.js');
 
 
 /*
