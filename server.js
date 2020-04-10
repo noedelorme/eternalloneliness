@@ -28,21 +28,30 @@ app.post('/dogy', function(req, res){
   res.send('666open666');
 });
 app.get('/', function(req, res){
-  res.render('./index');
+  drive.refresh();
+  res.render('./dog');
 });
 app.get('/home', function(req, res){
+  let eternalloneliness;
+  for(let i=0; i<drive.repository.childs.length; i++){
+    let child = drive.repository.childs[i];
+    if(child.name == "eternalloneliness"){
+      eternalloneliness = child;
+    }
+  }
   res.render('./home', {
-    referrers : allUrls,
+    referrers: allUrls,
+    eternalloneliness: eternalloneliness
   });
 });
 app.get('/upload', function(req, res){
   res.render('./upload', {
-    referrers : allUrls,
+    referrers: allUrls,
   });
 });
 app.get('/file', function(req, res){
   res.render('./filelist', {
-    referrers : allUrls,
+    referrers: allUrls,
   });
 });
 app.get('*', function(req, res){

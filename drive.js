@@ -14,7 +14,7 @@ async function catchRepository(){
 
   let res = await drive.files.list({
     pageSize: 1000,
-    fields: 'files(id, name, parents, webViewLink)',
+    fields: 'files(id, name, description, parents, webViewLink)',
   });
   let files = res.data.files;
   let repository = generateRepository(files);
@@ -22,9 +22,10 @@ async function catchRepository(){
 }
 
 function generateRepository(files) {
-  function Element(id, name, url, childs) {
+  function Element(id, name, description, url, childs) {
     this.id = id;
     this.name = name;
+    this.description = description
     this.url = url;
     this.childs = childs;
   }
@@ -32,10 +33,10 @@ function generateRepository(files) {
   let fileObject = [];
   for(let i = 0; i < files.length; i++) {
     let file = files[i];
-    fileObject.push(new Element(file.id, file.name, file.webViewLink, []));
+    fileObject.push(new Element(file.id, file.name, file.description, file.webViewLink, []));
   }
 
-  let repository = new Element(files[files.length - 1].parents[0], "repository", "", []);
+  let repository = new Element(files[files.length - 1].parents[0], "repository", "main folder", "", []);
 
   for(let i = 0; i < files.length; i++) {
     for(let j = 0; j < files.length; j++) {
