@@ -3,7 +3,6 @@ MODULE IMPORT
 */
 const express = require('express');
 const ejs = require('ejs');
-var bodyParser = require('body-parser');
 
 const drive = require('./drive.js');
 
@@ -15,8 +14,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/content/');
 app.use(express.static(__dirname + '/content/'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 
 /*
 CONSTANTES

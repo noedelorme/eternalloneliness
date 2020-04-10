@@ -1,28 +1,25 @@
+module.exports.isLoaded = false;
+module.exports.repository = {};
+
 const { google } = require('googleapis');
 
 const credentials = require('./drive/credentials.json');
 const token = require('./drive/token.json');
 const {client_secret, client_id, redirect_uris} = credentials.installed;
-const auth = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
-auth.setCredentials(token);
-const drive = google.drive({ version: "v3", auth });
 
-async function listFile(){
+async function catchRepository(){
+  const auth = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
+  auth.setCredentials(token);
+  const drive = google.drive({ version: "v3", auth });
+
   let res = await drive.files.list({
     pageSize: 1000,
     fields: 'files(id, name, parents, webViewLink)',
-  }); //Les 2 ligne ci-dessous sont executée après graçe au await
+  });
   let files = res.data.files;
   let repository = generateRepository(files);
-  //Mais le return est executer avant
   return repository;
 }
-
-let repository = listFile().then(function(response){
-  console.log(response);
-  module.exports.repository = response;
-});
-
 
 function generateRepository(files) {
   function Element(id, name, url, childs) {
@@ -54,3 +51,12 @@ function generateRepository(files) {
   }
   return repository;
 }
+
+function refresh(){
+  catchRepository().then(function(response){
+    module.exports.isLoaded = true;
+    module.exports.repository = response;
+  });
+}
+refresh();
+module.exports.refresh = refresh;
