@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/content/'));
 /*
 CONSTANTES
 */
-const allUrls = ["http://localhost:8101/", "http://localhost:8101/file", "http://localhost:8101/upload", "http://localhost:8101/home"];
+const url = "http://localhost:8101/";
 
 /*
 ROOTER SYSTEM
@@ -40,18 +40,27 @@ app.get('/home', function(req, res){
     }
   }
   res.render('./home', {
-    referrers: allUrls,
+    url: url,
     eternalloneliness: eternalloneliness
+  });
+});
+app.get('/files', function(req, res){
+  let eternalloneliness;
+  for(let i=0; i<drive.repository.childs.length; i++){
+    let child = drive.repository.childs[i];
+    if(child.name == "eternalloneliness"){
+      eternalloneliness = child;
+    }
+  }
+  res.render('./files', {
+    url: url,
+    eternalloneliness: eternalloneliness,
+    moduleID: req.query.module
   });
 });
 app.get('/upload', function(req, res){
   res.render('./upload', {
-    referrers: allUrls,
-  });
-});
-app.get('/file', function(req, res){
-  res.render('./filelist', {
-    referrers: allUrls,
+    url: url
   });
 });
 app.get('*', function(req, res){

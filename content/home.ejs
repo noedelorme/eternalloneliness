@@ -2,59 +2,20 @@
 
 <div class="container">
 
-  <% for(let i=0; i<eternalloneliness.childs.length; i++){
-      let folder = eternalloneliness.childs[eternalloneliness.childs.length-1-i];
+  <%
+  for(let i=0; i<eternalloneliness.childs.length; i++){
+    let folder = eternalloneliness.childs[eternalloneliness.childs.length-1-i];
   %>
-    <div class="module">
-      <a class="module-name" href="http://localhost:8101/file">
-        <h2><i class="fas fa-link"></i> <span class="module-short-name"><%= folder.name %></span>  <span class="module-full-name"><%= folder.description %></span></h2>
-      </a>
-      <a href="<%= folder.url %>" class="google-drive-link"><i class="fab fa-google-drive"></i></a>
-    </div>
-  <% } %>
-
-
-  <!--<div class="module">
-    <a class="module-name" href="http://localhost:8101/file">
-      <h2><i class="fas fa-link"></i> <span class="module-short-name">INF105</span>  <span class="module-full-name">Théorie des langages</span></h2>
-    </a>
-    <a href="#" class="google-drive-link"><i class="fab fa-google-drive"></i></a>
-  </div>
-
   <div class="module">
-    <a class="module-name" href="#">
-      <h2><i class="fas fa-link"></i> <span class="module-short-name">INF101</span>  <span class="module-full-name">Structures de données et algorithmie</span></h2>
+    <a class="module-name" href="http://localhost:8101/files?module=<%= folder.id %>">
+      <h2><i class="fas fa-link"></i> <span class="module-short-name"><%= folder.name %></span>  <span class="module-full-name"><%= folder.description %></span></h2>
     </a>
-    <a href="#" class="google-drive-link"><i class="fab fa-google-drive"></i></a>
+    <a href="<%= folder.url %>" class="google-drive-link"><i class="fab fa-google-drive"></i></a>
   </div>
+  <%
+  }
+  %>
 
-  <div class="module">
-    <a class="module-name" href="#">
-      <h2><i class="fas fa-link"></i> <span class="module-short-name">COM105</span>  <span class="module-full-name">Communication numérique et théorie de l'information</span></h2>
-    </a>
-    <a href="#" class="google-drive-link"><i class="fab fa-google-drive"></i></a>
-  </div>
-
-  <div class="module">
-    <a class="module-name" href="#">
-      <h2><i class="fas fa-link"></i> <span class="module-short-name">INF105</span>  <span class="module-full-name">Théorie des langages</span></h2>
-    </a>
-    <a href="#" class="google-drive-link"><i class="fab fa-google-drive"></i></a>
-  </div>
-
-  <div class="module">
-    <a class="module-name" href="#">
-      <h2><i class="fas fa-link"></i> <span class="module-short-name">COM105</span>  <span class="module-full-name">Communication numérique et théorie de l'information</span></h2>
-    </a>
-    <a href="#" class="google-drive-link"><i class="fab fa-google-drive"></i></a>
-  </div>
-
-  <div class="module">
-    <a class="module-name" href="#">
-      <h2><i class="fas fa-link"></i> <span class="module-short-name">INF101</span>  <span class="module-full-name">Structures de données et algorithmie</span></h2>
-    </a>
-    <a href="#" class="google-drive-link"><i class="fab fa-google-drive"></i></a>
-  </div>-->
 </div>
 
 

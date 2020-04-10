@@ -1,8 +1,17 @@
 <%- include('template/header') %>
 
+<%
+let module;
+for(let i=0; i<eternalloneliness.childs.length; i++){
+  if(eternalloneliness.childs[i].id == moduleID){
+    module = eternalloneliness.childs[i];
+  }
+}
+%>
+
 <div class="filelist container">
   <div class="filelist-module">
-    <h2>INF105</h2>
+    <h2><%= module.name %></h2>
   </div>
 
   <div class="folder">

@@ -13,11 +13,7 @@
     <script src="https://kit.fontawesome.com/b66bbacdfb.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/titlechange.js"></script>
     <script type="text/javascript">
-      let referrers = [];
-      <% referrers.forEach(function(ref) { %>
-        referrers.push("<%= ref %>");
-      <% }); %>
-      if(!referrers.includes(document.referrer)){
+      if(!document.referrer.includes("<%= url %>")){
         window.location.href = "/";
       }
     </script>
