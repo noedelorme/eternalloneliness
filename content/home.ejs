@@ -4,7 +4,7 @@
 
   <%
   for(let i=0; i<eternalloneliness.childs.length; i++){
-    let folder = eternalloneliness.childs[eternalloneliness.childs.length-1-i];
+    let folder = eternalloneliness.childs[i];
   %>
   <div class="module">
     <a class="module-name" href="http://localhost:8101/files?module=<%= folder.id %>">

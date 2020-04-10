@@ -46,10 +46,13 @@ function generateRepository(files) {
         parent.childs.push(child);
       }
     }
+    fileObject[i].childs.reverse();
     if(files[i].parents[0] == repository.id) {
       repository.childs.push(fileObject[i]);
     }
   }
+
+
   return repository;
 }
 
