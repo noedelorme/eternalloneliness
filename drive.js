@@ -43,7 +43,12 @@ function generateRepository(files) {
       if(files[j].parents[0] == files[i].id) {
         let child = fileObject[j];
         let parent = fileObject[i];
-        parent.childs.push(child);
+        //on met les fichiers avant les dossiers car on reverse plus bas
+        if(child.childs.length == 0){
+          parent.childs.unshift(child);
+        }else{
+          parent.childs.push(child);
+        }
       }
     }
     fileObject[i].childs.reverse();
