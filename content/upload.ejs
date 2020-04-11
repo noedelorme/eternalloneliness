@@ -1,19 +1,81 @@
 <%- include('template/header') %>
 
 <div class="upload container">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
 
-  <div class="real-upload">
-    <a href="#" class="real-upload-button">
-      <i class="fas fa-upload"></i>
-      <span class="real-upload-choose">Chosissez un fichier</span>
-    </a>
-    <span class="real-upload-filename">
-      filenamecanalsobelongerthanlongandevenlonger.pdf
-    </span>
+  <%
+  if(status=="success"){
+  %>
+  <div class="notif notif-success">
+    <i class="fas fa-check"></i> Votre fichier à été suggéré avec succès.
   </div>
+  <%
+  }else if(status=="toobig"){
+  %>
+  <div class="notif notif-defeat">
+    <i class="fas fa-times"></i> Votre fichier ne doit pas dépasser 10Mo.
+  </div>
+  <%
+  }else if(status=="error"){
+  %>
+    <div class="notif notif-defeat">
+      <i class="fas fa-times"></i> Un problème est survenu.
+    </div>
+  <%
+  }
+  %>
+
+<div class="faq">
+  <div class="faq-section">
+    <span class="faq-question"><i class="fas fa-award"></i> Qui peut soumettre un fichier ?</span>
+    <p class="faq-answer">
+      Tous le monde peut soumettre un fichier, celui-ci sera vérifié par l'administrateur. Merci de ne soumettre que des fichiers qui seront utiles. Merci d'avance pour votre contribution qui aidera très certainement les promos à venir.
+    </p>
+  </div>
+  <div class="faq-section">
+    <span class="faq-question"><i class="fas fa-award"></i> Comment soumettre un fichier ?</span>
+    <p class="faq-answer">
+      En remplissant le formulaire ci-dessous. Après avoir choisi votre fichier, n'oublier pas d'être précis dans la description du fichier (promo concernée, module, type de fichier, utilisation, ...), et pensez à indiquer le dossier dans lequel vous souhaiter ranger votre fichier.
+    </p>
+  </div>
+  <div class="faq-section">
+    <span class="faq-question"><i class="fas fa-award"></i> Quelles sont les restrictions sur les fichiers ?</span>
+    <p class="faq-answer">
+      Les type de fichiers autorisé sont : PDF, PNG, JPG, ZIP. La taille du fichier est limité à 10Mo. Si votre fichier ne respecte pas ces critères, vous ne pourrez pas le soumettre. Dans ce cas, vous pouvez directement envoyer un mail à l'administrateur.
+    </p>
+  </div>
+</div>
+
+
+<form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+  <div class="upload-area">
+    <input class="upload-file" required="required" type="file" name="userfile" accept="image/png, image/jpeg, application/pdf, application/zip">
+    <div class="upload-zone">
+      <i class="fas fa-upload"></i>
+      <span class="upload-text-default">Chosisir un fichier</span>
+      <span class="upload-text-success">Un fichier à été choisit</span>
+    </div>
+    <div class="upload-filename">
+      ...
+    </div>
+  </div>
+
+  <div class="upload-bloc-description">
+    <label class="upload-description-label">Rapide description du fichier (module, utilité, ...)</label>
+    <input class="upload-description" type="text" name="description" maxlength="200">
+  </div>
+
+  <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+
+  <button class="upload-submit" type="submit" name="button"><i class="fas fa-cloud-upload-alt"></i> Envoyer le fichier</button>
+</form>
+
+<script type="text/javascript">
+  let fileInput = document.querySelector('.upload-file');
+  fileInput.addEventListener('change', function(e){
+    document.querySelector('.upload-filename').innerHTML = this.value;
+  });
+</script>
+
 
 </div>
 

@@ -1,4 +1,3 @@
-module.exports.isLoaded = false;
 module.exports.repository = {};
 
 const { google } = require('googleapis');
@@ -55,14 +54,13 @@ async function catchRepository(){
     webViewLink: ""
   }
   let repository = reporitorize(mainFolder);
-  //console.log(repository);
+  //console.log(repository.childs);
   return repository;
 }
 
 
 function refresh(){
   catchRepository().then(function(response){
-    module.exports.isLoaded = true;
     module.exports.repository = response;
   });
 }
