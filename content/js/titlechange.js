@@ -6,6 +6,6 @@
   setInterval(function() {
     title.innerHTML = titles[i % 12];
     i++;
-  }, 500);
+  }, 700);
 
 })()

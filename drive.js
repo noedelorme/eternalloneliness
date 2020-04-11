@@ -15,13 +15,10 @@ async function catchRepository(){
   let res = await drive.files.list({
     pageSize: 1000,
     fields: 'files(id, name, description, parents, webViewLink)',
+    orderBy: 'folder,name'
   });
   let files = res.data.files;
-  let repository = generateRepository(files);
-  return repository;
-}
 
-function generateRepository(files) {
   function Element(id, name, description, url, childs) {
     this.id = id;
     this.name = name;
@@ -29,37 +26,39 @@ function generateRepository(files) {
     this.url = url;
     this.childs = childs;
   }
-
-  let fileObject = [];
-  for(let i = 0; i < files.length; i++) {
-    let file = files[i];
-    fileObject.push(new Element(file.id, file.name, file.description, file.webViewLink, []));
-  }
-
-  let repository = new Element(files[files.length - 1].parents[0], "repository", "main folder", "", []);
-
-  for(let i = 0; i < files.length; i++) {
-    for(let j = 0; j < files.length; j++) {
-      if(files[j].parents[0] == files[i].id) {
-        let child = fileObject[j];
-        let parent = fileObject[i];
-        //on met les fichiers avant les dossiers car on reverse plus bas
-        if(child.childs.length == 0){
-          parent.childs.unshift(child);
-        }else{
-          parent.childs.push(child);
-        }
+  function reporitorize(element){
+    let childs = files.filter(e => e.parents[0] == element.id);
+    if(childs.length == 0){
+      let file = new Element(element.id, element.name, element.description, element.webViewLink, []);
+      return file;
+    }else{
+      let folder = new Element(element.id, element.name, element.description, element.webViewLink, []);
+      for(let i=0; i<childs.length; i++){
+        folder.childs.push(reporitorize(childs[i]));
       }
-    }
-    fileObject[i].childs.reverse();
-    if(files[i].parents[0] == repository.id) {
-      repository.childs.push(fileObject[i]);
+      return folder;
     }
   }
-
-
+  /*
+  let mainFolderId;
+  for(let i=0; i<files.length; i++){
+    if(files[i].name == "eternalloneliness"){
+      mainFolderId = files[i].parents[0];
+    }
+  }
+  */
+  let mainFolder = {
+    id: "0AHCbZHme9dyTUk9PVA",
+    name: "main",
+    description: "main",
+    parents: [],
+    webViewLink: ""
+  }
+  let repository = reporitorize(mainFolder);
+  //console.log(repository);
   return repository;
 }
+
 
 function refresh(){
   catchRepository().then(function(response){
