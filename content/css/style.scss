@@ -1,4 +1,6 @@
 @import '_var';
+@import '_module';
+@import '_files';
 
 *,*::before,*::after{
   margin: 0;
@@ -26,7 +28,6 @@ a{
  font-family: "Altair";
  src: url("../font/Altair.ttf");
 }
-
 body{
   background-color: $bkg-color;
   font-family: 'Source sans pro', sans-serif;
@@ -35,7 +36,8 @@ body{
 
 .container{
   width:1000px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
 }
 @media screen and (max-width: 1200px) {
@@ -50,7 +52,7 @@ header{
   padding: 15px 0;
   margin-bottom: 25px;
   h1{
-    font-family: "Altair";
+    font-family: "Altair", 'Sans Source Pro', sans-serif;
     font-size: 30px;
     line-height: 50px;
     vertical-align: middle;
@@ -74,6 +76,14 @@ header{
   line-height: 21px;
   vertical-align: middle;
 }
+@media screen and (max-width: 400px) {
+  header{
+    h1{
+      font-size: 20px;
+    }
+  }
+}
+
 @keyframes upload{
   0%{background-position:0% -50%}
     50%{background-position:100% -50%}
@@ -132,108 +142,40 @@ header{
 }*/
 
 
-/*footer{
-  height: 200px;
-  background-color: $border-color;
-}*/
-
-.filelist-module{
-  margin-bottom: 25px;
-  border-radius: 4px;
-  overflow: hidden;
-  text-align: center;
-  h2{
-    font-size: 60px;
-    color: $text-color-2;
-  }
-}
-
-.file{
-  display: block;
-  background-color: $border-color;
-  border-radius: 4px;
-  margin-bottom: 25px;
-  overflow: hidden;
-  color: $text-color-1;
-  position: relative;
-  &:last-child{
-    margin-bottom: 15px;
-  }
-  &:hover{
-    background-color: lighten($module-bkg-color, 5%);
-    color: $text-color-1;
-  }
-  a.file-name{
-    display: block;
-    h3{
+footer{
+  margin-top: 50px;
+  padding:50px 0;
+  border-top: 1px solid $border-color;
+  .footer-content{
+    position: relative;
+    .mail{
+      font-family: 'Sans Source Pro', sans-serif;
       font-size: 20px;
-      padding: 8px;
-      padding-left: 15px;
-      padding-right: 120px;
-      width: 100%;
-      display: inline-block;
       line-height: 20px;
       vertical-align: middle;
-      font-weight: normal;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      i{
-        font-size: 17px;
-        margin-right: 5px;
+      color: $text-color-1;
+      .eternalloneliness{
+        font-weight: bold;
+        font-family: "Altair", 'Sans Source Pro', sans-serif;
       }
     }
-  }
-  .file-size{
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    color: $module-bkg-color;
-    position: absolute;
-    right:0;
-    top:0;
-    height: 100%;
-    font-size: 20px;
-    padding: 8px;
-    background-color: $green;
-    transition: .3s;
-    &:hover{
-      background-color: lighten($green, 20%);
+    .version{
+      position: absolute;
+      right: 0;
+      color: $text-color-3;
+      font-size: 17px;
+      line-height: 20px;
+      vertical-align: middle;
     }
   }
 }
-
-.folder{
-  border: 3px solid $module-bkg-color;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 35px;
-  .folder-name{
-    display: block;
-    background-color: $module-bkg-color;
-    color: $text-color-2;
-    overflow: hidden;
-    position: relative;
-    font-weight: bold;
-    margin-bottom: 15px;
-    h3{
-      font-size: 20px;
-      padding: 8px;
-      padding-left: 15px;
-      display: inline-block;
-      line-height: 20px;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      i{
-        font-size: 17px;
-        margin-right: 5px;
-      }
+@media screen and (max-width: 500px) {
+  footer .footer-content {
+    text-align: center;
+    .version{
+      position: relative;
+      display: block;
     }
-  }
-  .folder-content{
-    padding-left: 35px;
-    padding-right: 5px;
   }
 }
 
