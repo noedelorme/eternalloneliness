@@ -13,6 +13,7 @@ for(let i=0; i<eternalloneliness.childs.length; i++){
 <div class="filelist container">
   <div class="filelist-module">
     <h2><%= module.name %></h2>
+    <a href="<%= module.url %>" target="_blank"><i class="fab fa-google-drive"></i> Voir sur Google Drive</a>
   </div>
 
   <%
@@ -36,10 +37,10 @@ for(let i=0; i<eternalloneliness.childs.length; i++){
     }else{
     %>
       <div class="file">
-        <a class="file-name" href="#">
+        <a href="<%= child.url %>" target="_blank" class="file-name" href="#">
           <h3><i class="fas fa-file"></i><%= child.name %></h3>
+          <span class="file-dl"><i class="fas fa-expand"></i></span>
         </a>
-        <a href="<%= child.url %>" class="file-size"><i class="fas fa-download"></i> 3.2 Mo</a>
       </div>
     <%
     }
