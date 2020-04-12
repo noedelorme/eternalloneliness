@@ -24,7 +24,7 @@ app.use(fileUpload());
 /*
 VARIABLES
 */
-const url = "http://localhost:8101/";
+const url = "http://localhost:8101";
 const maxSizeUpload = 10 * 1024 * 1024;
 
 /*
