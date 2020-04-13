@@ -43,6 +43,7 @@ app.post('/dogy', function(req, res){
     res.send({connected: true, goTo: './home'});
   }
   if(req.body.dogymobile.includes("dggdg")){
+    req.session.is_connected = true;
     res.send({connected: true, goTo: './home'});
   }
   res.end();
@@ -68,7 +69,7 @@ app.get('/home', function(req, res){
   }
 });
 app.get('/files', function(req, res){
-  if(!req.session.is_connected){
+  if(!req.session.is_connected || !req.query.module){
     res.redirect('/');
   }else{
     let eternalloneliness;
