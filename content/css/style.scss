@@ -358,3 +358,62 @@ button.upload-submit{
     background-color: $pink;
   }
 }
+
+
+/*.panel{
+  background-color: $border-color;
+  border-radius: 4px;
+  overflow: hidden;
+  .news{
+    border-bottom: 1px solid $text-color-3;
+    padding: 10px;
+    //text-align: justify;
+    position: relative;
+    padding-right: 95px;
+    padding-left: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:last-child{
+      border-bottom: none;
+    }
+    .news-title{
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $text-color-1;
+      width: 130px;
+      display: inline-block;
+      position: absolute;
+      left: 5px;
+    }
+    .news-date{
+      color:  $text-color-3;
+      margin-right: 5px;
+      position: absolute;
+      right: 0;
+      top: 10px;
+      width: 80px;
+      display: inline-block;
+    }
+  }
+}
+*/
+
+
+.alert{
+  background-color: #cce5ff;
+  font-size: 18px;
+  position: relative;
+  color: $bkg-color;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 10px;
+  .alert-title{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 3px;
+    i{
+      font-size: 15px;
+    }
+  }
+}

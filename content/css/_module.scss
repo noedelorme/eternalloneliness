@@ -21,7 +21,6 @@
       font-size: 20px;
       color: $text-color-3;
       padding: 30px;
-      padding-right: 20px;
       display: inline-block;
       white-space: nowrap;
       overflow: hidden;
@@ -58,6 +57,29 @@
     color: $module-bkg-color;
     &:hover{
       background-color: lighten($green, 20%);
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .module{
+    margin: 15px 0;
+    a.module-name{
+      h2{
+        font-size: 15px;
+        padding: 20px;
+        vertical-align: middle;
+        padding-right: 70px;
+        .module-short-name{
+          font-size: 20px;
+        }
+        i{
+          font-size: 15px;
+        }
+      }
+    }
+    .google-drive-link{
+      font-size: 20px;
+      padding: 20px;
     }
   }
 }

@@ -12,7 +12,7 @@
       }
     }
   };
-  xhr.open('post', 'https://eternalloneliness.dog/dogy', false);
+  xhr.open('post', 'http://localhost:8101/dogy', false);
   xhr.send();
 
   let taped = "";

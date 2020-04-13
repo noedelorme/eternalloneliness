@@ -25,6 +25,7 @@ app.use(fileUpload());
 VARIABLES
 */
 const url = "http://localhost:8101";
+//const url = "https://eternalloneliness.dog";
 const maxSizeUpload = 10 * 1024 * 1024;
 
 /*
@@ -35,7 +36,7 @@ app.post('/dogy', function(req, res){
 });
 app.get('/', function(req, res){
   drivelist.refresh();
-  res.render('./dog');
+  res.render('./index');
 });
 app.get('/home', function(req, res){
   let eternalloneliness;
@@ -89,7 +90,7 @@ app.post('/uploadstatus', function(req, res){
   res.send(uploadStatus);
 });
 app.get('*', function(req, res){
-  res.render('./404');
+  res.redirect('/');
 });
 
 app.listen(8101, '0.0.0.0');
