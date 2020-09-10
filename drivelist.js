@@ -13,11 +13,23 @@ async function catchRepository(){
 
   let res = await drive.files.list({
     pageSize: 1000,
-    fields: 'files(id, name, description, parents, webViewLink)',
+    fields: 'files(id, name, description, parents, webViewLink), nextPageToken',
     orderBy: 'folder,name'
   });
   let files = res.data.files;
-  
+  let nextPageToken = res.data.nextPageToken;
+
+  while(nextPageToken){
+    let nextRes = await drive.files.list({
+      pageToken: nextPageToken,
+      pageSize: 1000,
+      fields: 'files(id, name, description, parents, webViewLink), nextPageToken',
+      orderBy: 'folder,name'
+    });
+    files = files.concat(nextRes.data.files);
+    nextPageToken = nextRes.data.nextPageToken;
+  }
+
   function Element(id, name, description, url, childs) {
     this.id = id;
     this.name = name;
@@ -25,6 +37,7 @@ async function catchRepository(){
     this.url = url;
     this.childs = childs;
   }
+
   function reporitorize(element){
     let childs = files.filter(e => e.parents[0] == element.id);
     if(childs.length == 0){
@@ -38,6 +51,7 @@ async function catchRepository(){
       return folder;
     }
   }
+
   /*
   let mainFolderId;
   for(let i=0; i<files.length; i++){
@@ -54,7 +68,7 @@ async function catchRepository(){
     webViewLink: ""
   }
   let repository = reporitorize(mainFolder);
-  //console.log(repository.childs);
+
   return repository;
 }
 

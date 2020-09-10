@@ -53,7 +53,7 @@ app.get('/', function(req, res){
   res.render('./index');
 });
 app.get('/home', function(req, res){
-  if(!req.session.is_connected){
+  if(!req.session.is_connected || drivelist.repository.childs.length<1){
     res.redirect('/');
   }else{
     let eternalloneliness;
