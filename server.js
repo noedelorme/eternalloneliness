@@ -114,6 +114,5 @@ app.post('/uploadstatus', function(req, res){
 app.get('*', function(req, res){
   res.redirect('/');
 });
-console.log(process.env);
-console.log(process.env.PORT);
-app.listen(process.env.PORT || 8100, process.env.IP || 'fd00::2:90ed');
+
+app.listen(process.argv[3] || process.env.PORT || 8100, process.argv[2] || process.env.IP || 'fd00::2:90ed');

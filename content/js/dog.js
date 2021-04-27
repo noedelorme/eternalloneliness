@@ -17,8 +17,8 @@
     }
   };
 
-  //let dogyurl = "http://localhost:8101/dogy";
-  let dogyurl = "https://eternalloneliness.dog/dogy";
+  let dogyurl = window.location.href + "dogy";
+  //let dogyurl = "https://eternalloneliness.dog/dogy";
 
   let taped = "";
   let clicks = "";
