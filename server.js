@@ -115,4 +115,5 @@ app.get('*', function(req, res){
   res.redirect('/');
 });
 
-app.listen(process.argv[3] || process.env.PORT || 8100, process.argv[2] || process.env.IP || 'fd00::2:90ed');
+app.listen(3001, "localhost");
+//app.listen(process.argv[3] || process.env.PORT || 8100, process.argv[2] || process.env.IP || 'fd00::2:90ed');
