@@ -7,7 +7,6 @@
       if(xhr.status == 200){
         dogy = JSON.parse(xhr.responseText);
         if(dogy.connected){
-          //window.location.replace(dogy.goTo);
           window.location.href = dogy.goTo;
         }
       }
@@ -18,7 +17,6 @@
   };
 
   let dogyurl = window.location.href + "dogy";
-  //let dogyurl = "https://eternalloneliness.dog/dogy";
 
   let taped = "";
   let clicks = "";

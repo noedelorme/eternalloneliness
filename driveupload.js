@@ -4,8 +4,8 @@ const fs = require('fs');
 const { google } = require('googleapis');
 const streamifier = require('streamifier');
 
-const credentials = require('./drive/credentials.json');
-const token = require('./drive/token.json');
+const credentials = require('./config.json').drivecredentials;
+const token = require('./config.json').drivetoken;
 const {client_secret, client_id, redirect_uris} = credentials.installed;
 
 async function upload(file, description){

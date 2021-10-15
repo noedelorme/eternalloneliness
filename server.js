@@ -11,12 +11,16 @@ const drivelist = require('./drivelist.js');
 const driveupload = require('./driveupload.js');
 
 
+const config = require('./config.json');
+let pswd = config.pswd;
+let mobilepswd = config.mobilepswd;
+
 /*
 INITIALISATION
 */
 const app = express();
 app.use(session({
-    secret: 'roses',
+    secret: pswd,
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false }
@@ -38,11 +42,11 @@ const maxSizeUpload = 10 * 1024 * 1024;
 ROOTER SYSTEM
 */
 app.post('/dogy', function(req, res){
-  if(req.body.dogy.includes("666open666")){
+  if(req.body.dogy.includes(pswd)){
     req.session.is_connected = true;
     res.send({connected: true, goTo: './home'});
   }
-  if(req.body.dogymobile.includes("dggdg")){
+  if(req.body.dogymobile.includes(mobilepswd)){
     req.session.is_connected = true;
     res.send({connected: true, goTo: './home'});
   }
@@ -116,4 +120,3 @@ app.get('*', function(req, res){
 });
 
 app.listen(3001, "localhost");
-//app.listen(process.argv[3] || process.env.PORT || 8100, process.argv[2] || process.env.IP || 'fd00::2:90ed');
