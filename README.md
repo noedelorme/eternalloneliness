@@ -1,5 +1,5 @@
 # Eternalloneliness
-A private file manager for Télécom Paris's students, using the Google Drive API.
+A private file manager for an anonymous school, using the Google Drive API.
 
 ## Installation
 ```bash
